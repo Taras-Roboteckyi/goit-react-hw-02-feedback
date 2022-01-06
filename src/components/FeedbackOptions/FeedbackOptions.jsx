@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import { FeedbackButtonStyled } from './FeedbackOptions.styled';
 
 function FeedbackOptions(props) {
   const { options, onLeaveFeedback } = props;
   //console.log(props);
   return (
-    <button type="button" onClick={onLeaveFeedback}>
+    <FeedbackButtonStyled type="button" onClick={onLeaveFeedback}>
       {options}
-    </button>
+    </FeedbackButtonStyled>
   );
 }
 

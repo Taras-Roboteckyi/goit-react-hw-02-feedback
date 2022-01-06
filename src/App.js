@@ -3,6 +3,7 @@ import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
 import Statistics from './components/Statistics/Statistics';
 import Section from './components/Section/Section';
 import Notification from './components/Notification/Notification';
+import { SectionButtonStyled, StatisticTitle } from './App.styled';
 
 class Feedback extends React.Component {
   state = {
@@ -28,10 +29,11 @@ class Feedback extends React.Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+
     return (
       <Section title="Please leave feedback">
-        <section>
-          {Object.keys(this.state).map((btn, index) => {
+        <SectionButtonStyled>
+          {Object.keys({ good, neutral, bad }).map((btn, index) => {
             return (
               <FeedbackOptions
                 key={index}
@@ -40,9 +42,9 @@ class Feedback extends React.Component {
               />
             );
           })}
-        </section>
+        </SectionButtonStyled>
 
-        <h2>Statistics</h2>
+        <StatisticTitle>Statistics</StatisticTitle>
 
         {good === 0 && neutral === 0 && bad === 0 ? (
           <Notification message="There is no feedback" />
