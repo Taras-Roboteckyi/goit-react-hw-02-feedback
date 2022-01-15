@@ -35,15 +35,10 @@ class Feedback extends React.Component {
     return (
       <Section title="Please leave feedback">
         <SectionButtonStyled>
-          {Object.keys({ good, neutral, bad }).map((btn, index) => {
-            return (
-              <FeedbackOptions
-                key={index}
-                options={btn}
-                onLeaveFeedback={() => this.handleIncrementFeedback(btn)}
-              />
-            );
-          })}
+          <FeedbackOptions
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleIncrementFeedback}
+          />
         </SectionButtonStyled>
 
         <StatisticTitle>Statistics</StatisticTitle>
